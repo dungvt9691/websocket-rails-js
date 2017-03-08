@@ -12,11 +12,7 @@ WebSocket Interface for the WebSocketRails client.
       this.state = 'connecting';
       this.connection_id;
       if (!(this.url.match(/^wss?:\/\//) || this.url.match(/^ws?:\/\//))) {
-        if (window.location.protocol === 'https:') {
-          this.url = "wss://" + this.url;
-        } else {
-          this.url = "ws://" + this.url;
-        }
+        this.url = "ws://" + this.url;
       }
       this._conn = new WebSocket(this.url);
       this._conn.onmessage = (function(_this) {
