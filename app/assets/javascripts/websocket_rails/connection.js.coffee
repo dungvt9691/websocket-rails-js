@@ -10,10 +10,7 @@ class WebSocketRails.Connection
 
 
     unless @url.match(/^wss?:\/\//) || @url.match(/^ws?:\/\//)
-      if window.location.protocol == 'https:'
-        @url = "wss://#{@url}"
-      else
-        @url = "ws://#{@url}"
+      @url = "ws://#{@url}"
 
     @_conn = new WebSocket(@url)
 
